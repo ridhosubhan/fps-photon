@@ -29,8 +29,6 @@ public class PlayerGroundCheck : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        Debug.Log("Name : " + other.gameObject.name);
-        Debug.Log("Name : " + PlayerController.gameObject.name);
 
         if (other.gameObject == PlayerController.gameObject)
             return;

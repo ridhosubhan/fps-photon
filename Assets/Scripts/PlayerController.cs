@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,13 +15,28 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody rb;
 
+    PhotonView pv;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        pv = GetComponent<PhotonView>();
+    }
+
+    void Start()
+    {
+        if (!pv.IsMine) 
+        {
+            Destroy(GetComponentInChildren<Camera>().gameObject);
+            Destroy(rb);
+        }
     }
 
     void Update()
     {
+        if (!pv.IsMine)
+            return;
+
         LookUpDown();
         Move();
         Jump();
@@ -46,12 +62,6 @@ public class PlayerController : MonoBehaviour
 
     void Jump() 
     {
-        /*if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("Pencet Spasi Doang");
-            rb.AddForce(transform.up * jumpForce);
-        }
-*/
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
             Debug.Log("Pencet Spasi Doang DAN GROUNDED");
@@ -66,6 +76,9 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!pv.IsMine)
+            return;
+
         rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);    
     }
 
