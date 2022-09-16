@@ -8,7 +8,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject cameraHolder;
     [SerializeField] float mouseSensitivity, sprintSpeed, walkSpeed, jumpForce, smoothTime;
 
-    private float verticalLookRotation;
+    [SerializeField] Item[] items;
+    int itemIndex;
+    int previousItemIndex = -1;
+
+    float verticalLookRotation;
     bool grounded;
     Vector3 smoothMoveVelocity;
     Vector3 moveAmount;
@@ -25,7 +29,11 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        if (!pv.IsMine) 
+        if (pv.IsMine)
+        {
+            EquipItem(0);
+        }
+        else 
         {
             Destroy(GetComponentInChildren<Camera>().gameObject);
             Destroy(rb);
@@ -40,6 +48,15 @@ public class PlayerController : MonoBehaviour
         LookUpDown();
         Move();
         Jump();
+
+        for (int i = 0; i < items.Length; i++)
+        { 
+            if(Input.GetKeyDown((i + 1).ToString()))
+            {
+                EquipItem(i);
+                break;
+            }
+        }
     }
 
     void LookUpDown() 
@@ -67,6 +84,22 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Pencet Spasi Doang DAN GROUNDED");
             rb.AddForce(transform.up * jumpForce);
         }
+    }
+
+    void EquipItem(int _index) 
+    {
+        if (_index == previousItemIndex)
+            return;
+        itemIndex = _index;
+
+        items[itemIndex].itemGameObject.SetActive(true);
+
+        if (previousItemIndex != -1)
+        {
+            items[previousItemIndex].itemGameObject.SetActive(false);
+        }
+
+        previousItemIndex = itemIndex;
     }
 
     public void setGroundedState(bool _grounded) 
