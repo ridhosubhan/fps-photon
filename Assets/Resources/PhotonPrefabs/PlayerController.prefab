@@ -43,7 +43,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8686872327886265727}
   m_Layer: 0
-  m_Name: Gun2
+  m_Name: RifleObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -227,8 +227,8 @@ MonoBehaviour:
   jumpForce: 300
   smoothTime: 0.15
   items:
-  - {fileID: 1280939725022420595}
-  - {fileID: 2960963803525194266}
+  - {fileID: 6575501526982920221}
+  - {fileID: 801467803232612080}
 --- !u!114 &232371787633859934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,9 +479,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6895133547842132609}
-  - component: {fileID: 1280939725022420595}
+  - component: {fileID: 6575501526982920221}
   m_Layer: 0
-  m_Name: Gun1Item
+  m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -503,7 +503,7 @@ Transform:
   m_Father: {fileID: 8885338738351169086}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1280939725022420595
+--- !u!114 &6575501526982920221
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -512,11 +512,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5449993620511597257}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8d7e352db0f8334d91ba99db770b7c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e897b14333810942814691057ccb947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemInfo: {fileID: 11400000, guid: 1da1d75823f0f23478a6be98a2355a6d, type: 2}
   itemGameObject: {fileID: 7540653193068653140}
+  cam: {fileID: 2335399863334091418}
 --- !u!1 &6472697625512777640
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,7 +611,7 @@ GameObject:
   m_Component:
   - component: {fileID: 368368250471408629}
   m_Layer: 0
-  m_Name: Gun1
+  m_Name: PistolObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -641,9 +642,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2050002175108830134}
-  - component: {fileID: 2960963803525194266}
+  - component: {fileID: 801467803232612080}
   m_Layer: 0
-  m_Name: Gun2Item
+  m_Name: Rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -665,7 +666,7 @@ Transform:
   m_Father: {fileID: 8885338738351169086}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2960963803525194266
+--- !u!114 &801467803232612080
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -674,11 +675,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7843304425932082001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8d7e352db0f8334d91ba99db770b7c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e897b14333810942814691057ccb947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemInfo: {fileID: 11400000, guid: f59848f3e210b5e499d9abf8315a18bf, type: 2}
   itemGameObject: {fileID: 1904421367816825081}
+  cam: {fileID: 2335399863334091418}
 --- !u!1 &9038916283224428472
 GameObject:
   m_ObjectHideFlags: 0
